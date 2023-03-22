@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
 const {port} = require('./config/config');
-require('./models/connectToDb')
+const db = require('./models/connectToDb')
+db.sequelize.sync();
 
 const authRouter = require('./routers/auth');
 
